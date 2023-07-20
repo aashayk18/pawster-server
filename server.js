@@ -102,6 +102,18 @@ app.get('/search', async (req, res) => {
   res.json(pets);
 });
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+app.get('/getPetById', async (req, res) => {
+  const petId = req.query.id;
+
+  try {
+    const pet = await Pet.findById(petId);
+    if (!pet) {
+      res.status(404).json({ error: 'Pet not found' });
+    } else {
+      res.json(pet);
+    }
+  } catch (error) {
+    console.error('Error fetching pet by ID:', error);
+    res.status(500).json({ error: 'Error fetching pet by ID' });
+  }
 });
