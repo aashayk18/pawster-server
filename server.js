@@ -6,6 +6,7 @@ const aws = require('aws-sdk');
 require('dotenv').config()
 
 const app = express();
+const port = 3000;
 
 app.use(fileUpload());
 app.use(cors());
@@ -100,6 +101,10 @@ app.get('/search', async (req, res) => {
     return;
   }
   res.json(pets);
+});
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
 
 // app.get('/getPetById', async (req, res) => {
