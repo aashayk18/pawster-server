@@ -102,18 +102,18 @@ app.get('/search', async (req, res) => {
   res.json(pets);
 });
 
-app.get('/getPetById', async (req, res) => {
-  const petId = req.query.id;
+// app.get('/getPetById', async (req, res) => {
+//   const petId = req.query.id;
 
-  try {
-    const pet = await Pet.findById(petId);
-    if (!pet) {
-      res.status(404).json({ error: 'Pet not found' });
-    } else {
-      res.json(pet);
-    }
-  } catch (error) {
-    console.error('Error fetching pet by ID:', error);
-    res.status(500).json({ error: 'Error fetching pet by ID' });
-  }
-});
+//   try {
+//     const pet = await Pet.findById(petId);
+//     if (!pet) {
+//       res.status(404).json({ error: 'Pet not found' });
+//     } else {
+//       res.json(pet);
+//     }
+//   } catch (error) {
+//     console.error('Error fetching pet by ID:', error);
+//     res.status(500).json({ error: 'Error fetching pet by ID' });
+//   }
+// });
