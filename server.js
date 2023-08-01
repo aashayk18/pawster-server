@@ -70,7 +70,7 @@ app.post('/add-pet', (req, res) => {
 
     try {
       await s3.putObject(params).promise();
-      petData.image.url = `https:/d35c9z5id0no27.cloudfront.net/${fileName}`;
+      petData.image.url = `https://d35c9z5id0no27.cloudfront.net/${fileName}`;
       console.log('File uploaded successfully');
     } catch (error) {
       console.error(error);
