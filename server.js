@@ -27,6 +27,7 @@ const petSchema = new mongoose.Schema({
   age: String,
   traits: String,
   toy: String,
+  owner: String,
   image: {
     url: String
   }
@@ -40,6 +41,7 @@ app.post('/add-pet', (req, res) => {
     age: req.body.petAge,
     traits: req.body.petTraits,
     toy: req.body.petToy,
+    owner: req.body.petOwner,
     image: {
       url: ''
     }
